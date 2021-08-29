@@ -4,9 +4,16 @@
   "description": "NodeJS Wrapper around SaobracajnaAPI (MUP RS) for reading vehicle cards",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx tsc && node ./dist/index.js"
+    "test": "npx tsc && node ./dist/index.js"
   },
   "author": "Aleksa Elezovic (Web-Ez)",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@types/ffi-napi": "^4.0.4",
+    "@types/ref-napi": "^3.0.4",
+    "@types/ref-struct-di": "^1.1.4",
+    "ffi-napi": "^4.0.3",
+    "ref-struct-di": "^1.1.1",
+    "smartcard": "^1.0.46"
+  }
 }
