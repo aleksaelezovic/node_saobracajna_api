@@ -1,11 +1,14 @@
 {
   "name": "node_saobracajna_api",
-  "version": "1.0.0",
+  "version": "1.0.0-2",
   "description": "NodeJS Wrapper around SaobracajnaAPI (MUP RS) for reading vehicle cards",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "scripts": {
     "copy-dll": "xcopy /D .\\saobracajnaAPI\\eVehicleRegistrationAPI.dll .\\dist\\saobracajnaAPI\\",
-    "test": "npx tsc && npm run copy-dll && .\\node-x86\\node.exe ./dist/index.js"
+    "test": "npx tsc && npm run copy-dll && .\\node-x86\\node.exe ./dist/index.js",
+    "build": "npx tsc && npm run copy-dll",
+    "prepublish": "npm run build"
   },
   "author": "Aleksa Elezovic (Web-Ez)",
   "license": "ISC",
@@ -14,7 +17,6 @@
     "@types/ref-napi": "^3.0.4",
     "@types/ref-struct-di": "^1.1.4",
     "ffi-napi": "^4.0.3",
-    "ref-struct-di": "^1.1.1",
-    "smartcard": "^1.0.46"
+    "ref-struct-di": "^1.1.1"
   }
 }

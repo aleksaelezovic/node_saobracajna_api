@@ -77,37 +77,4 @@ export default class MUPSaobracajnaApi {
     this.isInit = false;
   }
 }
-export {MUPSaobracajnaApi, RegistrationIndex }
-
-/* EXAMPLE */
-const smartcard = require("smartcard");
-const devices = new smartcard.Devices();
-
-devices.on("device-activated", (e: any) => {
-  console.log("---Device:", e.device.name);
-  console.log("Waiting for card...");
-
-  e.device.on("card-inserted", (e: any) => {
-    console.log("---Card:", e.card.getAtr());
-
-    _test(e.device.name);
-  });
-});
-console.log("Waiting for device...");
-
-const _test = async (device: string) => {
-  console.log("---START---");
-  const celik = new MUPSaobracajnaApi(device);
-  try {
-    const data = await celik.readAllData();
-    console.log(data);
-    // const reg = await celik.readRegistration(RegistrationIndex.EF_Registration_A);
-    // console.log(reg);
-  } catch (e: any) {
-    console.log(e.message ?? new Error(e));
-  } finally {
-    await celik.end();
-    console.log("---END---");
-    process.exit();
-  }
-};
+export { MUPSaobracajnaApi, RegistrationIndex };
