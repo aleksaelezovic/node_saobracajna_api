@@ -16,7 +16,7 @@ export enum SaobracajnaApiResponseStatus {
 }
 
 export const getSaobracajnaApiStatus = (
-  code: number
+  code: number | string
 ): SaobracajnaApiResponseStatus => {
   switch (code) {
     case ERRORS.S_OK:
@@ -54,7 +54,7 @@ export type SaobracajnaApiResponse<T = any> = {
 };
 
 export const getResponse = <T = any>(
-  code: number,
+  code: number | string,
   data: T | null = null
 ): SaobracajnaApiResponse<T> => {
   const responseStatus = getSaobracajnaApiStatus(code);
