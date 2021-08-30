@@ -4,16 +4,16 @@ import { SAOBRACAJNAAPI_DLL_PATH } from "../../util/get-saobracajnaApi-path";
 
 export const createSaobracajnaApiLib = () =>
   ffi.Library(SAOBRACAJNAAPI_DLL_PATH, {
-    sdStartup: ["long", ["long"]],
-    sdCleanup: ["long", []],
-    GetReaderName: ["long", ["long", "char*", "long*"]],
-    SelectReader: ["long", ["char*"]],
-    sdProcessNewCard: ["long", []],
-    sdReadDocumentData: ["long", [refTypeOf(API_TYPES.SD_DOCUMENT_DATA)]],
-    sdReadVehicleData: ["long", [refTypeOf(API_TYPES.SD_VEHICLE_DATA)]],
-    sdReadPersonalData: ["long", [refTypeOf(API_TYPES.SD_PERSONAL_DATA)]],
+    sdStartup: ["longlong", ["int"]],
+    sdCleanup: ["longlong", []],
+    GetReaderName: ["longlong", ["long", API_TYPES.LPCSTR, "long*"]],
+    SelectReader: ["longlong", [API_TYPES.LPCSTR]],
+    sdProcessNewCard: ["longlong", []],
+    sdReadDocumentData: ["longlong", [refTypeOf(API_TYPES.SD_DOCUMENT_DATA)]],
+    sdReadVehicleData: ["longlong", [refTypeOf(API_TYPES.SD_VEHICLE_DATA)]],
+    sdReadPersonalData: ["longlong", [refTypeOf(API_TYPES.SD_PERSONAL_DATA)]],
     sdReadRegistration: [
-      "long",
+      "longlong",
       [refTypeOf(API_TYPES.SD_REGISTRATION_DATA), "long"],
     ],
 

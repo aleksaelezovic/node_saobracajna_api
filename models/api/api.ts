@@ -4,7 +4,7 @@ import {
   SaobracajnaApiResponse,
   SaobracajnaApiResponseStatus,
 } from "./responses";
-import API_TYPES, { Pointer } from "../saobracajna/types";
+import API_TYPES from "../saobracajna/types";
 import { RegistrationIndex } from "./types";
 import { convertStruct } from "../converter";
 
@@ -14,8 +14,8 @@ class SaobracajnaApi {
     this.saobracajnaApiLib = createSaobracajnaApiLib();
   }
 
-  startup(apiVersion = 3): SaobracajnaApiResponse {
-    // TRENUTNA (AVG 2021) VERZIJA API-ja je: 3
+  startup(apiVersion = 1): SaobracajnaApiResponse {
+    // TRENUTNA (AVG 2021) VERZIJA API-ja je: 1
     return getResponse(this.saobracajnaApiLib.sdStartup(apiVersion));
   }
   cleanup(): SaobracajnaApiResponse {
