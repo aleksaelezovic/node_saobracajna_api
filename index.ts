@@ -1,7 +1,7 @@
 import SaobracajnaApi, { SaobracajnaApiResponseStatus } from "./models/api/api";
 import { RegistrationIndex } from "./models/api/types";
 
-class MUPSaobracajnaApi {
+export default class MUPSaobracajnaApi {
   private api: SaobracajnaApi;
   device: string = "";
   constructor(
@@ -77,6 +77,7 @@ class MUPSaobracajnaApi {
     this.isInit = false;
   }
 }
+export {MUPSaobracajnaApi, RegistrationIndex }
 
 /* EXAMPLE */
 const smartcard = require("smartcard");
